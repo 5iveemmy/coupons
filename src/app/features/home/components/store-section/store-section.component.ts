@@ -6,7 +6,8 @@ import { SliderModule } from 'primeng/slider';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DividerModule } from 'primeng/divider';
 import { RadioGroupComponent } from '../../../../components/radio-group/radio-group.component';
-
+import { InputGroupModule } from 'primeng/inputgroup';
+import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-store-section',
   imports: [
@@ -18,6 +19,8 @@ import { RadioGroupComponent } from '../../../../components/radio-group/radio-gr
     SliderModule,
     InputNumberModule,
     RadioGroupComponent,
+    InputGroupModule,
+    ButtonModule,
   ],
   templateUrl: './store-section.component.html',
   styleUrl: './store-section.component.css',

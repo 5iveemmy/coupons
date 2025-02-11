@@ -1,4 +1,4 @@
-<div class="bg-gray-100 py-20 px-32">
+<div class="bg-gray-100 py-20 px-32 flex">
     <div class="w-60 bg-white rounded-xl ">
 
         <app-radio-group [title]="'Category'" [items]="categories"
@@ -25,5 +25,16 @@
         <p-divider class="text-[#E0E0E0] my-0 py-0" />
 
         <app-radio-group [title]="'Location'" [items]="locations" (selected)="onOptionSelect($event)"></app-radio-group>
+    </div>
+
+    <div class="px-6">
+        <div>
+            <div class="relative w-[600px]">
+                <input pInputText type="text" placeholder="Search for store items"
+                    class="w-full h-[48px] rounded-[48px] border border-[#616161] px-5 pr-12 focus:outline-none" />
+                <p-button icon="pi pi-search" severity="secondary" variant="text"
+                    class="absolute right-4 top-1/2 -translate-y-1/2" />
+            </div>
+        </div>
     </div>
 </div>

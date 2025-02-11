@@ -8,6 +8,9 @@ import { DividerModule } from 'primeng/divider';
 import { RadioGroupComponent } from '../../../../components/radio-group/radio-group.component';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { ButtonModule } from 'primeng/button';
+import { SelectModule } from 'primeng/select';
+import { CardComponent } from '../../../../components/card/card.component';
+
 @Component({
   selector: 'app-store-section',
   imports: [
@@ -21,6 +24,8 @@ import { ButtonModule } from 'primeng/button';
     RadioGroupComponent,
     InputGroupModule,
     ButtonModule,
+    SelectModule,
+    CardComponent,
   ],
   templateUrl: './store-section.component.html',
   styleUrl: './store-section.component.css',
@@ -64,4 +69,10 @@ export class StoreSectionComponent {
       selectedCategory: [null],
     });
   }
+
+  selectedSort: string = '';
+  sortOptions = [
+    { label: 'Newest to Oldest', value: 'newest' },
+    { label: 'Oldest to Newest', value: 'oldest' },
+  ];
 }

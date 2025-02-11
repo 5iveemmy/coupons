@@ -44,3 +44,8 @@
 :host ::ng-deep p-inputNumber .p-inputtext {
   padding: 0.25rem 1.5rem !important;
 }
+
+:host ::ng-deep .p-select-option.p-select-option-selected {
+  background: #f7dbf6 !important;
+  color: #9444cb !important;
+}

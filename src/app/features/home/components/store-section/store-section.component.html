@@ -1,0 +1,13 @@
+<div class="bg-gray-100 py-20 px-30">
+    <div class="w-60 bg-white rounded-xl p-4">
+        <p class="text-[#757575]">Category</p>
+        <form [formGroup]="form" class="flex flex-col gap-4">
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <p-radiobutton [inputId]="category.key" [value]="category.key" formControlName="selectedCategory">
+                </p-radiobutton>
+                <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+            </div>
+        </form>
+        <p-checkbox [(ngModel)]="checked" [binary]="true" />
+    </div>
+</div>

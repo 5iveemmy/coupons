@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+::ng-deep .p-button {
+  background-color: unset !important;
+  padding: unset !important;
+
+  color: unset !important;
+  border: unset !important;
+  &:enabled:hover {
+    background-color: unset !important;
+  }
+}
+
+::ng-deep .p-button-label {
+  font-weight: unset !important;
+}

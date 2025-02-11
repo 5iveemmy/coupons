@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@tailwind utilities;
 
 @font-face {
   font-family: "CreatoDisplay";
@@ -22,4 +23,14 @@
 
 body {
   font-family: "CreatoDisplay", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@theme {
+  --color-dark: #1b1c1e;
+  --color-primary: #9444cb;
 }

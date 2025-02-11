@@ -1,0 +1,25 @@
+/* Radio Button Override*/
+
+:host ::ng-deep .p-radiobutton-icon {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+:host ::ng-deep .p-radiobutton {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+:host ::ng-deep .p-radiobutton-box {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+:host ::ng-deep .p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
+  background: #6a0dad !important;
+}
+
+:host ::ng-deep .p-radiobutton-checked .p-radiobutton-box {
+  background: none !important;
+  border-color: #6a0dad !important;
+}

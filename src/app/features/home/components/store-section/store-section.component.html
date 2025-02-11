@@ -1,13 +1,29 @@
-<div class="bg-gray-100 py-20 px-30">
-    <div class="w-60 bg-white rounded-xl p-4">
-        <p class="text-[#757575]">Category</p>
-        <form [formGroup]="form" class="flex flex-col gap-4">
-            <div *ngFor="let category of categories" class="field-checkbox">
-                <p-radiobutton [inputId]="category.key" [value]="category.key" formControlName="selectedCategory">
-                </p-radiobutton>
-                <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+<div class="bg-gray-100 py-20 px-32">
+    <div class="w-60 bg-white rounded-xl ">
+
+        <app-radio-group [title]="'Category'" [items]="categories"
+            (selected)="onOptionSelect($event)"></app-radio-group>
+
+        <p-divider class="text-[#E0E0E0] my-0 py-0" />
+
+        <div class="p-4">
+            <p class="text-sm font-bold text-[#757575] mb-3">Price</p>
+            <p-slider [(ngModel)]="rangeValues" [range]="true" styleClass="full" [min]="0" [max]="5000" [step]="100" />
+            <div class="flex gap-4 mt-5 w-full">
+                <p-inputNumber [(ngModel)]="rangeValues[0]" [showButtons]="false" styleClass="w-full"
+                    inputStyleClass="w-full" placeholder="Min" [min]="0" [max]="rangeValues[1]" />
+                <p-inputNumber [(ngModel)]="rangeValues[1]" [showButtons]="false" styleClass="w-full"
+                    inputStyleClass="w-full" placeholder="Max" [min]="rangeValues[0]" />
             </div>
-        </form>
-        <p-checkbox [(ngModel)]="checked" [binary]="true" />
+        </div>
+
+        <p-divider class="text-[#E0E0E0] my-0 py-0" />
+
+        <app-radio-group [title]="'Percentage'" [items]="percentages"
+            (selected)="onOptionSelect($event)"></app-radio-group>
+
+        <p-divider class="text-[#E0E0E0] my-0 py-0" />
+
+        <app-radio-group [title]="'Location'" [items]="locations" (selected)="onOptionSelect($event)"></app-radio-group>
     </div>
 </div>

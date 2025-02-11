@@ -1,3 +1,46 @@
 :host {
   display: block;
 }
+
+/* Slider Override*/
+
+:host ::ng-deep .p-slider .p-slider-range {
+  background: #9444cb !important;
+}
+
+:host ::ng-deep .p-slider .p-slider-handle,
+:host ::ng-deep .p-slider.p-component .p-slider-handle {
+  background: #9444cb !important;
+  border-color: #9444cb !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin-top: calc(-1 * calc(14px / 2));
+}
+
+:host ::ng-deep .p-slider .p-slider-handle:hover {
+  background: #9444cb !important;
+  border-color: #9444cb !important;
+}
+
+:host ::ng-deep .p-slider:not(.p-disabled) .p-slider-handle:hover {
+  background: #9444cb !important;
+  border-color: #9444cb !important;
+}
+
+:host ::ng-deep .p-slider:not(.p-disabled) .p-slider-handle:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem rgba(148, 68, 203, 0.2);
+}
+
+:host ::ng-deep .p-slider-handle::before {
+  background-color: #9444cb !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Input Override*/
+
+:host ::ng-deep p-inputNumber .p-inputtext {
+  padding: 0.25rem 1.5rem !important;
+}

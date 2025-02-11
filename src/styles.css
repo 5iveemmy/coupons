@@ -1,28 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+@import 'tailwindcss';
 @tailwind utilities;
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("../public/fonts/CreatoDisplay-Light.otf") format("opentype");
+  font-family: 'CreatoDisplay';
+  src: url('../public/fonts/CreatoDisplay-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("../public/fonts/CreatoDisplay-Regular.otf") format("opentype");
+  font-family: 'CreatoDisplay';
+  src: url('../public/fonts/CreatoDisplay-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 * {
   box-sizing: border-box;
-  font-family: "CreatoDisplay", sans-serif;
+  font-family: 'CreatoDisplay', sans-serif;
 }
 
 body {
-  font-family: "CreatoDisplay", sans-serif;
+  font-family: 'CreatoDisplay', sans-serif;
 }
 
 html,
@@ -33,4 +33,5 @@ body {
 @theme {
   --color-dark: #1b1c1e;
   --color-primary: #9444cb;
+  --color-secondary: #ee7037;
 }

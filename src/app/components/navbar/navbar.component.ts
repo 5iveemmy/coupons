@@ -7,13 +7,7 @@ import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-navbar',
-  imports: [
-    MatIconModule,
-    CommonModule,
-    RouterModule,
-    MatButtonModule,
-    ButtonModule,
-  ],
+  imports: [MatIconModule, CommonModule, RouterModule, MatButtonModule, ButtonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   standalone: true,

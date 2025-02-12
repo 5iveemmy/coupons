@@ -1,5 +1,12 @@
-<div class="w-[213px] border border-[#e0e0e0] bg-[#FAF7FD] rounded-xl py-6 px-4">
-    <div class="flex justify-between items-center"> <img src="jumia.png" class="w-10 h-10" alt="jumia" />
+<div class=" border border-[#e0e0e0] bg-[#FAF7FD] rounded-xl py-6 px-4">
+    <div class="flex justify-between items-center"> <img *ngIf="coupon.brand.logo; else placeholder "
+            [src]="coupon.brand.logo" class="w-10 h-10" alt="{{ coupon.brand.name }}" />
+        <ng-template #placeholder>
+            <div
+                class="w-10 h-10 bg-[#9444cb] flex items-center justify-center text-sm font-bold text-white rounded-md">
+                {{ getAcronym(coupon.brand.name) }}
+            </div>
+        </ng-template>
         <div class="flex gap-3 items-center">
             <img src="send.png" class="w-5 h-5" alt="Send" />
             <img src="bookmark.png" class="w-5 h-5" alt="Send" />
@@ -7,13 +14,14 @@
 
     </div>
     <div class="flex justify-between pt-3 pb-5">
-        <p class="font-bold">Jumia</p>
-        <p class="font-bold">-20%</p>
+        <p class="font-bold">{{ coupon.brand.name }}</p>
+        <p class="font-bold">{{ coupon.coupon_discount }}%</p>
     </div>
 
-    <p class="pb-8 font-medium text-xs text-[#616161]">Get 20% off your entire purchase of N50,000 or more</p>
+    <p class="pb-8 font-medium text-xs text-[#616161]">Get {{ coupon.brand.coupon_off }} off your entire purchase of
+        N50,000 or more</p>
 
-    <p-button class="w-full rounded-xl border font-bold text-primary border-gray-300 text px-5 py-3">
-        See Offer
+    <p-button class="flex justify-center w-full rounded-xl border font-bold text-[#1B1C1E] border-[#1B1C1E]  px-5 py-3">
+        <label class="text-sm">See Offer</label> <i class="pi pi-arrow-right h-4 w-4"></i>
     </p-button>
 </div>

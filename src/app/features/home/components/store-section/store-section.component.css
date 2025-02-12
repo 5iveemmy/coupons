@@ -49,3 +49,17 @@
   background: #f7dbf6 !important;
   color: #9444cb !important;
 }
+
+:host ::ng-deep .p-paginator {
+  background: transparent !important;
+  margin-top: 1.5rem !important;
+}
+
+:host ::ng-deep .p-select {
+  background: transparent !important;
+}
+
+:host ::ng-deep .p-paginator-page.p-paginator-page-selected {
+  background: #f7dbf6 !important;
+  color: #9444cb !important;
+}

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +10,9 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { CardComponent } from '../../../../components/card/card.component';
+import couponData from '../../../../../data/couponDataTest.json';
+import { Coupon } from '../../../../../coupon';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'app-store-section',
@@ -26,15 +29,63 @@ import { CardComponent } from '../../../../components/card/card.component';
     ButtonModule,
     SelectModule,
     CardComponent,
+    PaginatorModule,
   ],
   templateUrl: './store-section.component.html',
   styleUrl: './store-section.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StoreSectionComponent {
+export class StoreSectionComponent implements OnInit {
   selectedOption = signal<string | null>(null);
   form: FormGroup;
   rangeValues: number[] = [1000, 3000];
+  coupons: Coupon[] = [];
+  filteredCoupons: Coupon[] = [];
+  searchQuery: string = '';
+  sortOption: string = 'newest';
+  pageSize = 16;
+  currentPage = 0;
+
+  ngOnInit() {
+    this.coupons = couponData.data;
+    this.filteredCoupons = [...this.coupons];
+    this.sortCoupons();
+    this.updatePageData();
+  }
+
+  updatePageData() {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    this.filteredCoupons = this.coupons.slice(start, end);
+  }
+
+  onPageChange(event: any) {
+    this.currentPage = event.page;
+    this.updatePageData();
+  }
+
+  searchCoupons() {
+    this.filteredCoupons = this.coupons.filter((coupon) =>
+      coupon.company_name.toLowerCase().includes(this.searchQuery.toLowerCase()),
+    );
+  }
+
+  sortCoupons() {
+    this.filteredCoupons = [...this.filteredCoupons].sort((a, b) => {
+      return this.sortOption === 'newest'
+        ? new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        : new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+    });
+  }
+
+  onSearchChange(event: any) {
+    this.searchQuery = event.target.value;
+    this.searchCoupons();
+  }
+
+  onSortChange() {
+    this.sortCoupons();
+  }
 
   categories = [
     { key: '1', name: 'Resturant' },
@@ -70,7 +121,6 @@ export class StoreSectionComponent {
     });
   }
 
-  selectedSort: string = '';
   sortOptions = [
     { label: 'Newest to Oldest', value: 'newest' },
     { label: 'Oldest to Newest', value: 'oldest' },

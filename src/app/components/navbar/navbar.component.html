@@ -7,7 +7,7 @@
     </a>
 
 
-    <ul class="hidden md:flex items-center space-x-6">
+    <ul class="hidden lg:flex items-center lg:space-x-3 xl:space-x-6">
       <li *ngFor="let link of navLinks" [ngClass]="{ 'border-r-gray-300 font-medium border-r pr-6': link.hasBorder }"
         class="text-dark">
         <a [routerLink]="link.path" routerLinkActive="active" class="flex gap-2">
@@ -20,7 +20,7 @@
 
   <div class="flex items-center gap-4">
 
-    <div class="hidden md:flex items-center gap-4">
+    <div class="hidden lg:flex items-center gap-4">
       <p-button label="Login"
         class="rounded-xl border font-bold text-primary border-gray-300 text px-4 md:px-5 py-2 md:py-3" />
       <p-button label="Join The Tribe"
@@ -28,8 +28,9 @@
     </div>
 
 
-    <button class="md:hidden" (click)="toggleMenu()">
-      <mat-icon>menu</mat-icon>
+    <button class="lg:hidden" (click)="toggleMenu()">
+      <i *ngIf="!isMenuOpen" class="pi pi-bars"></i>
+      <i *ngIf="isMenuOpen" class="pi pi-times"></i>
     </button>
   </div>
 
@@ -43,11 +44,11 @@
         </a>
       </li>
     </ul>
-    <div class="p-4 border-t border-gray-300">
+    <div class="p-4 border-t border-gray-300 flex gap-10">
       <p-button label="Login"
-        class="w-full rounded-xl border font-bold text-primary border-gray-300 text px-4 py-2 mb-2" />
+        class="w-full justify-center flex rounded-xl border font-bold text-primary border-gray-300 text px-4 py-2 mb-2" />
       <p-button label="Join The Tribe"
-        class="w-full rounded-xl border font-semibold text-white !bg-primary border-gray-300 text px-4 py-2" />
+        class="w-full justify-center flex rounded-xl border font-semibold text-white !bg-primary border-gray-300 text px-4 py-2" />
     </div>
   </div>
 </nav>

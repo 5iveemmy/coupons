@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+::ng-deep .p-carousel-indicator-button {
+  background-color: rgb(255, 255, 255, 0.25);
+  height: 2px;
+  width: 56px;
+}
+::ng-deep .p-carousel-indicator-active .p-carousel-indicator-button {
+  background-color: #ffffff;
+}
+
+::ng-deep .p-carousel-prev-button {
+  color: white;
+}
+
+::ng-deep .p-carousel-next-button {
+  color: white;
+}

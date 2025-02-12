@@ -1,0 +1,54 @@
+<div class="bg-gray-100 py-10  lg:py-20 px-4 md:px-8 xl:px-32 flex flex-col lg:flex-row">
+
+    <div class="w-full lg:min-w-60 lg:max-w-60 bg-white rounded-xl max-h-fit mb-10 xl:mb-0">
+        <app-radio-group [title]="'Category'" [items]="categories"
+            (selected)="onOptionSelect($event)"></app-radio-group>
+        <p-divider class="text-[#E0E0E0] my-0 py-0" />
+        <div class="p-4">
+            <p class="text-sm font-bold text-[#757575] mb-3">Price</p>
+            <p-slider [(ngModel)]="rangeValues" [range]="true" styleClass="full" [min]="0" [max]="5000" [step]="100" />
+            <div class="flex gap-4 mt-5 w-full">
+                <p-inputNumber [(ngModel)]="rangeValues[0]" [showButtons]="false" styleClass="w-full"
+                    inputStyleClass="w-full" placeholder="Min" [min]="0" [max]="rangeValues[1]" />
+                <p-inputNumber [(ngModel)]="rangeValues[1]" [showButtons]="false" styleClass="w-full"
+                    inputStyleClass="w-full" placeholder="Max" [min]="rangeValues[0]" />
+            </div>
+        </div>
+        <p-divider class="text-[#E0E0E0] my-0 py-0" />
+        <app-radio-group [title]="'Percentage'" [items]="percentages"
+            (selected)="onOptionSelect($event)"></app-radio-group>
+        <p-divider class="text-[#E0E0E0] my-0 py-0" />
+        <app-radio-group [title]="'Location'" [items]="locations" (selected)="onOptionSelect($event)"></app-radio-group>
+    </div>
+
+    <div class="px-4 md:px-6">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-10">
+            <div class="relative w-full  md:w-[calc(100%-300px)] max-w-[600px]">
+                <input pInputText type="text" placeholder="Search for store items" (input)="onSearchChange($event)"
+                    class="w-full h-[48px] rounded-[48px] bg-transparent border border-[#616161] px-5 pr-12 focus:outline-none" />
+                <p-button icon="pi pi-search" severity="secondary" variant="text"
+                    class="absolute right-4 top-1/2 -translate-y-1/2" />
+            </div>
+            <div class="flex items-center gap-2 min-">
+                <p class="text-gray-700">Sort By:</p>
+                <p-select [options]="sortOptions" [(ngModel)]="sortOption" (ngModelChange)="onSortChange()"
+                    placeholder="Select" class="w-fit bg-transparent border-none shadow-none"></p-select>
+            </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            <ng-container *ngFor="let coupon of filteredCoupons; let i = index">
+                <app-card [coupon]="coupon" />
+                <ng-container *ngIf="i === filteredCoupons.length - 5">
+                    <div class="col-span-full flex justify-center">
+                        <img src="banner.png" alt="banner" />
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <!-- Paginator -->
+        <p-paginator [rows]="pageSize" [totalRecords]="coupons.length" (onPageChange)="onPageChange($event)"
+            [rowsPerPageOptions]="[8, 16, 32]" class="mt-6 md:mt-10" />
+    </div>
+</div>

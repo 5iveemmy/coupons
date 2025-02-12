@@ -1,0 +1,9 @@
+<div class="p-4">
+    <p class="text-sm font-bold text-[#757575]">{{ title }}</p>
+    <form [formGroup]="form" class="flex flex-col">
+        <div *ngFor="let item of items" class="flex items-center gap-2">
+            <p-radiobutton [inputId]="item.key" [value]="item.key" formControlName="selectedOption"></p-radiobutton>
+            <label [for]="item.key" class="pt-1.5">{{ item.name }}</label>
+        </div>
+    </form>
+</div>

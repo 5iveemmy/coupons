@@ -1,0 +1,54 @@
+<div class="py-12 xl:py-28 lg:py-16 lg:px-20 px-4 xl:px-32">
+    <div
+        class="shadow-[0px_8px_24px_0px_rgba(8,26,61,0.12)] px-4 md:px-14 md:py-8 lg:px-20 py-8 lg:py-14 flex flex-col xl:flex-row gap-8 xl:gap-28">
+
+        <div class="text-center xl:text-left">
+            <div class="pb-6 flex flex-col items-center xl:block">
+                <p-avatar-group>
+                    <p-avatar image="mugshot-one.png" size="large"></p-avatar>
+                    <p-avatar image="mugshot-two.png" size="large"></p-avatar>
+                    <p-avatar image="mugshot-three.png" size="large"></p-avatar>
+                </p-avatar-group>
+                <img src="squiggly-line.png" alt="squiggly line" class="w-16 md:w-28 h-2 md:h-3 mt-3" />
+            </div>
+            <h1 class="pb-4 md:pb-8 text-xl md:text-3xl font-semibold">Don't quite find what you want?</h1>
+            <p class="max-w-full xl:max-w-[355px] text-[#424242] text-base md:text-xl font-medium">
+                Let us know and we will make it available for you in a jiffy.
+            </p>
+        </div>
+
+
+        <form class="flex-1 w-full">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-5 w-full">
+                <div class="flex flex-col gap-1 w-full">
+                    <label class="text-[#757575] text-sm" for="name">Your name</label>
+                    <input pInputText type="text" placeholder="Enter your name"
+                        class="h-10 md:h-[48px] rounded-lg bg-transparent border border-[#E0E0E0] px-3 md:px-5 focus:outline-none placeholder:text-sm" />
+                </div>
+                <div class="flex flex-col gap-1 w-full">
+                    <label class="text-[#757575] text-sm" for="email">Email</label>
+                    <input pInputText type="email" placeholder="Enter your email"
+                        class="h-10 md:h-[48px] rounded-lg bg-transparent border border-[#E0E0E0] px-3 md:px-5 focus:outline-none placeholder:text-sm" />
+                </div>
+            </div>
+
+            <div class="pt-4 flex flex-col md:flex-row gap-4 md:gap-5 w-full">
+                <div class="flex flex-col gap-1 w-full">
+                    <label class="text-[#757575] text-sm" for="product">Product name</label>
+                    <input pInputText type="text" placeholder="Enter name of product"
+                        class="h-10 md:h-[48px] rounded-lg bg-transparent border border-[#E0E0E0] px-3 md:px-5 focus:outline-none placeholder:text-sm" />
+                </div>
+                <div class="flex flex-col gap-1 w-full">
+                    <label class="text-[#757575] text-sm" for="vendor">Vendor name</label>
+                    <input pInputText type="text" placeholder="e.g jumia, Airpeace, Spotify"
+                        class="h-10 md:h-[48px] rounded-lg bg-transparent border border-[#E0E0E0] px-3 md:px-5 focus:outline-none placeholder:text-sm" />
+                </div>
+            </div>
+
+            <p-button
+                class="w-full flex justify-center rounded-lg mt-5 border font-bold text-white bg-primary border-gray-300 text-sm md:text-base px-3 py-2 md:px-5 md:py-3">
+                Submit
+            </p-button>
+        </form>
+    </div>
+</div>

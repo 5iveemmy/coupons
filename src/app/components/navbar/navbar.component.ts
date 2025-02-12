@@ -14,7 +14,11 @@ import { ButtonModule } from 'primeng/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-  menuOpen = false;
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   navLinks = [
     { label: 'The what?', path: '/', icon: '', hasBorder: true },
@@ -24,8 +28,4 @@ export class NavbarComponent {
     { label: 'Courses', path: '/', icon: 'courses.png', hasBorder: false },
     { label: 'Jobs', path: '/', icon: 'jobs.png', hasBorder: false },
   ];
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
 }

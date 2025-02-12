@@ -1,10 +1,13 @@
-<nav class="pl-32 pr-28 py-6 flex justify-between items-center">
-  <div class="flex gap-9">
+<nav class="pl-4 xl:pl-32 pr-4 xl:pr-28 py-4 md:py-6 flex justify-between items-center">
+
+  <div class="flex items-center gap-4 md:gap-9">
+
     <a href="/">
-      <img src="logo.png" alt="twenties tribe Logo" />
+      <img src="logo.png" alt="twenties tribe Logo" class="w-24 md:w-auto" />
     </a>
 
-    <ul [ngClass]="{ hidden: !menuOpen, flex: menuOpen }" class="md:flex items-center space-x-6">
+
+    <ul class="hidden md:flex items-center space-x-6">
       <li *ngFor="let link of navLinks" [ngClass]="{ 'border-r-gray-300 font-medium border-r pr-6': link.hasBorder }"
         class="text-dark">
         <a [routerLink]="link.path" routerLinkActive="active" class="flex gap-2">
@@ -16,13 +19,35 @@
   </div>
 
   <div class="flex items-center gap-4">
-    <div class="border-r border-r-gray-300 pr-6">
-      <mat-icon>search</mat-icon>
+
+    <div class="hidden md:flex items-center gap-4">
+      <p-button label="Login"
+        class="rounded-xl border font-bold text-primary border-gray-300 text px-4 md:px-5 py-2 md:py-3" />
+      <p-button label="Join The Tribe"
+        class="rounded-xl border font-semibold text-white !bg-primary border-gray-300 text px-4 md:px-5 py-2 md:py-3" />
     </div>
-    <p-button label="Login" class="rounded-xl border font-bold text-primary border-gray-300 text px-5 py-3" />
-    <p-button label="Join The Tribe"
-      class="rounded-xl border font-semibold text-white !bg-primary border-gray-300 text px-5 py-3" />
+
+
+    <button class="md:hidden" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
 
-  <button class="md:hidden block" (click)="toggleMenu()">☰</button>
+  <div *ngIf="isMenuOpen" class="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-50">
+    <ul class="flex flex-col space-y-4 p-4">
+      <li *ngFor="let link of navLinks" [ngClass]="{ 'border-b-gray-300 font-medium border-b pb-4': link.hasBorder }"
+        class="text-dark">
+        <a [routerLink]="link.path" routerLinkActive="active" class="flex gap-2">
+          <img *ngIf="link.icon" [src]="link.icon" class="w-6 h-6" alt="{{ link.label }}" />
+          <p>{{ link.label }}</p>
+        </a>
+      </li>
+    </ul>
+    <div class="p-4 border-t border-gray-300">
+      <p-button label="Login"
+        class="w-full rounded-xl border font-bold text-primary border-gray-300 text px-4 py-2 mb-2" />
+      <p-button label="Join The Tribe"
+        class="w-full rounded-xl border font-semibold text-white !bg-primary border-gray-300 text px-4 py-2" />
+    </div>
+  </div>
 </nav>

@@ -20,7 +20,7 @@ export class RadioGroupComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      selectedOption: [null], // Default value
+      selectedOption: [null],
     });
 
     this.form.get('selectedOption')?.valueChanges.subscribe((value) => {

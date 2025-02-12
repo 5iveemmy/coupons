@@ -9,4 +9,6 @@ import { HomeComponent } from './features/home/home.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'coupon app';
+}

@@ -21,8 +21,8 @@
         <app-radio-group [title]="'Location'" [items]="locations" (selected)="onOptionSelect($event)"></app-radio-group>
     </div>
 
-    <div class="px-4 md:px-6">
-        <div class="flex flex-col md:flex-row gap-4 md:gap-10">
+    <div class="px-4 md:px-6 w-full">
+        <div class=" flex flex-col md:flex-row gap-4 md:gap-10">
             <div class="relative w-full  md:w-[calc(100%-300px)] max-w-[600px]">
                 <input pInputText type="text" placeholder="Search for store items" (input)="onSearchChange($event)"
                     class="w-full h-[48px] rounded-[48px] bg-transparent border border-[#616161] px-5 pr-12 focus:outline-none" />
@@ -37,17 +37,27 @@
         </div>
 
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-            <ng-container *ngFor="let coupon of filteredCoupons; let i = index">
-                <app-card [coupon]="coupon" />
-                <ng-container *ngIf="i === filteredCoupons.length - 5">
-                    <div class="col-span-full flex justify-center">
-                        <img src="banner.png" alt="banner" />
-                    </div>
+            <ng-container *ngIf="filteredCoupons.length > 0; else emptyState">
+                <ng-container *ngFor="let coupon of filteredCoupons; let i = index">
+                    <app-card [coupon]="coupon" />
+                    <ng-container *ngIf="i === filteredCoupons.length - 5">
+                        <div class="col-span-full flex justify-center">
+                            <img src="banner.png" alt="banner" />
+                        </div>
+                    </ng-container>
                 </ng-container>
             </ng-container>
+
+            <ng-template #emptyState>
+                <div
+                    class="col-span-full w-full flex flex-col items-center justify-center text-center text-gray-500 py-16">
+
+                    <p class="mt-4 text-lg font-semibold">No results found</p>
+                    <p class="text-sm">Try searching for something else.</p>
+                </div>
+            </ng-template>
         </div>
 
-        <!-- Paginator -->
         <p-paginator [rows]="pageSize" [totalRecords]="coupons.length" (onPageChange)="onPageChange($event)"
             [rowsPerPageOptions]="[8, 16, 32]" class="mt-6 md:mt-10" />
     </div>

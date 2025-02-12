@@ -12,8 +12,8 @@
 
 
     <div class="md:w-[50%] lg:w-[25%]">
-        <p-carousel [value]="promos" [numVisible]="1" [numScroll]="1" [autoplayInterval]="3000"
-            contentClass="flex items-center">
+        <p-carousel [value]="promos" [responsiveOptions]="responsiveOptions" [numVisible]="1" [numScroll]="1"
+            [autoplayInterval]="3000" contentClass="flex items-center">
             <ng-template pTemplate="item" let-promo>
                 <div class="">
                     <img [src]="promo.image" alt="Coupon Image" class="w-full" />

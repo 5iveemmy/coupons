@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DividerModule } from 'primeng/divider';
 import { CarouselModule } from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
@@ -12,28 +12,7 @@ import { CardModule } from 'primeng/card';
   changeDetection: ChangeDetectionStrategy.Default,
   host: { ngSkipHydration: 'true' },
 })
-export class HeaderComponent implements OnInit {
-  responsiveOptions: any[] = [];
-
-  ngOnInit() {
-    this.responsiveOptions = [
-      {
-        breakpoint: '1024px',
-        numVisible: 3,
-        numScroll: 3,
-      },
-      {
-        breakpoint: '768px',
-        numVisible: 2,
-        numScroll: 2,
-      },
-      {
-        breakpoint: '560px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-    ];
-  }
+export class HeaderComponent {
   promos = [
     {
       image: 'bg-party.png',

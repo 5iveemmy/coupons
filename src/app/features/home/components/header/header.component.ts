@@ -10,6 +10,7 @@ import { CardModule } from 'primeng/card';
   styleUrl: './header.component.css',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Default,
+  host: { ngSkipHydration: 'true' },
 })
 export class HeaderComponent implements OnInit {
   responsiveOptions: any[] = [];

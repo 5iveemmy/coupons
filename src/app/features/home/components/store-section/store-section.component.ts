@@ -66,9 +66,14 @@ export class StoreSectionComponent implements OnInit {
   }
 
   searchCoupons() {
-    this.filteredCoupons = this.coupons.filter((coupon) =>
-      coupon.company_name.toLowerCase().includes(this.searchQuery.toLowerCase()),
-    );
+    if (this.searchQuery.trim()) {
+      this.filteredCoupons = this.coupons.filter((coupon) =>
+        coupon.company_name.toLowerCase().includes(this.searchQuery.toLowerCase()),
+      );
+    } else {
+      this.currentPage = 0;
+      this.updatePageData();
+    }
   }
 
   sortCoupons() {

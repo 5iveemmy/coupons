@@ -46,12 +46,21 @@
         <div>
 
 
-            <div class="mt-6 grid grid-cols-4 gap-6">
-                <app-card *ngFor="let coupon of filteredCoupons" [coupon]="coupon" />
-            </div>
-            <p-paginator [rows]="pageSize" [totalRecords]="coupons.length" (onPageChange)="onPageChange($event)"
-                [rowsPerPageOptions]="[8, 16, 32]" class="mt-10" />
+            <<div class="mt-6 grid grid-cols-4 gap-6">
+                <ng-container *ngFor="let coupon of filteredCoupons; let i = index">
+                    <app-card [coupon]="coupon" />
+
+                    <ng-container *ngIf="i === filteredCoupons.length - 5">
+                        <div class="col-span-4 flex justify-center">
+                            <img src="banner.png" alt="banner" />
+                        </div>
+                    </ng-container>
+                </ng-container>
         </div>
 
+        <p-paginator [rows]="pageSize" [totalRecords]="coupons.length" (onPageChange)="onPageChange($event)"
+            [rowsPerPageOptions]="[8, 16, 32]" class="mt-10" />
     </div>
+
+</div>
 </div>

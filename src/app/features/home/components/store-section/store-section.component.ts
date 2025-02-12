@@ -80,9 +80,9 @@ export class StoreSectionComponent implements OnInit {
     this.filteredCoupons = [...this.filteredCoupons].sort((a, b) => {
       switch (this.sortOption) {
         case 'newest':
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-        case 'oldest':
-          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+        return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+       case 'oldest':
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
         case 'asc':
           return a.title.localeCompare(b.title);
         case 'desc':

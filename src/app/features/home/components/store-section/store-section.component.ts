@@ -45,6 +45,7 @@ export class StoreSectionComponent implements OnInit {
   sortOption: string = 'newest';
   pageSize = 16;
   currentPage = 0;
+  totalRecord = couponData.total_count;
 
   ngOnInit() {
     this.coupons = couponData.data;
@@ -72,9 +73,19 @@ export class StoreSectionComponent implements OnInit {
 
   sortCoupons() {
     this.filteredCoupons = [...this.filteredCoupons].sort((a, b) => {
-      return this.sortOption === 'newest'
-        ? new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        : new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+      switch (this.sortOption) {
+        case 'newest':
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        case 'oldest':
+          return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+        case 'asc':
+          return a.title.localeCompare(b.title);
+        case 'desc':
+          return b.title.localeCompare(a.title);
+
+        default:
+          return 0;
+      }
     });
   }
 
@@ -112,7 +123,6 @@ export class StoreSectionComponent implements OnInit {
 
   onOptionSelect(key: string) {
     this.selectedOption.set(key);
-    console.log('Selected Category:', this.selectedOption());
   }
 
   constructor(private fb: FormBuilder) {
@@ -121,8 +131,11 @@ export class StoreSectionComponent implements OnInit {
     });
   }
 
+  //most of the coupons were created at the same time, newest/oldest sort doesn't show noticeable changes
   sortOptions = [
-    { label: 'Newest to Oldest', value: 'newest' },
-    { label: 'Oldest to Newest', value: 'oldest' },
+    { label: 'Newest', value: 'newest' },
+    { label: 'Oldest', value: 'oldest' },
+    { label: 'Title (A-Z)', value: 'asc' },
+    { label: 'Title (Z-A)', value: 'desc' },
   ];
 }

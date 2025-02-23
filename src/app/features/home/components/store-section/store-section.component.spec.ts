@@ -42,11 +42,11 @@ describe('StoreSectionComponent', () => {
     expect(component.filteredCoupons.every((coupon) => coupon.company_name.toLowerCase().includes('test'))).toBeTrue();
   });
 
-  it('should sort coupons correctly by title (A-Z)', () => {
+  it('should sort coupons correctly by company name (A-Z)', () => {
     component.sortOption = 'asc';
     component.sortCoupons();
     expect(component.filteredCoupons).toEqual(
-      [...component.filteredCoupons].sort((a, b) => a.title.localeCompare(b.title)),
+      [...component.filteredCoupons].sort((a, b) => a.company_name.localeCompare(b.company_name)),
     );
   });
 

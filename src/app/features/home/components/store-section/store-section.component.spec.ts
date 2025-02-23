@@ -39,14 +39,14 @@ describe('StoreSectionComponent', () => {
   it('should filter coupons based on search query', () => {
     component.searchQuery = 'test';
     component.searchCoupons();
-    expect(component.filteredCoupons.every((coupon) => coupon.company_name.toLowerCase().includes('test'))).toBeTrue();
+    expect(component.filteredCoupons.every((coupon) => coupon.brand.name.toLowerCase().includes('test'))).toBeTrue();
   });
 
-  it('should sort coupons correctly by company name (A-Z)', () => {
+  it('should sort coupons correctly by brand name name (A-Z)', () => {
     component.sortOption = 'asc';
     component.sortCoupons();
     expect(component.filteredCoupons).toEqual(
-      [...component.filteredCoupons].sort((a, b) => a.company_name.localeCompare(b.company_name)),
+      [...component.filteredCoupons].sort((a, b) => a.brand.name.localeCompare(b.brand.name)),
     );
   });
 

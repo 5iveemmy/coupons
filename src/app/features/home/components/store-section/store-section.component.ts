@@ -69,7 +69,7 @@ export class StoreSectionComponent implements OnInit {
   searchCoupons() {
     if (this.searchQuery.trim()) {
       this.filteredCoupons = this.coupons.filter((coupon) =>
-        coupon.company_name.toLowerCase().includes(this.searchQuery.toLowerCase()),
+        coupon.brand.name.toLowerCase().includes(this.searchQuery.toLowerCase()),
       );
     } else {
       this.currentPage = 0;
@@ -85,9 +85,9 @@ export class StoreSectionComponent implements OnInit {
         case 'oldest':
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
         case 'asc':
-          return a.company_name.localeCompare(b.company_name);
+          return a.brand.name.localeCompare(b.brand.name);
         case 'desc':
-          return b.company_name.localeCompare(a.company_name);
+          return b.brand.name.localeCompare(a.brand.name);
 
         default:
           return 0;

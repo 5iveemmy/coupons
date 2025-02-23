@@ -62,6 +62,7 @@ export class StoreSectionComponent implements OnInit {
 
   onPageChange(event: any) {
     this.currentPage = event.page;
+    this.pageSize = event.rows;
     this.updatePageData();
   }
 
